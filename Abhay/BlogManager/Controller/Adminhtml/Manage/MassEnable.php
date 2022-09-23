@@ -13,14 +13,17 @@ use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
 use Magento\Ui\Component\MassAction\Filter;
 
-class Delete extends \Magento\Backend\App\Action
+class MassEnable extends \Magento\Backend\App\Action
 {
+    protected $_filter;
     protected $_blog;
 
     public function __construct(
+        \Magento\Ui\Component\MassAction\Filter $filter,
         Action\Context $context,
         \Abhay\BlogManager\Model\BlogFactory $blogFactory
     ) {
+        $this->_filter = $filter;
         $this->_blog = $blogFactory;
         parent::__construct($context);
     }
@@ -38,12 +41,13 @@ class Delete extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $id=$this->getRequest()->getParam('id');
-        if ($id) {
-            $blog = $this->_blog->create()->load($id);
-            $blog->delete();
-            $this->messageManager->addSuccess(__('Blog(s) deleted successfully.'));
+        $blogModel = $this->_blog->create();
+        $collection = $this->_filter->getCollection($blogModel->getCollection());
+        foreach ($collection as $blog) {
+            $blog->setStatus(1);
+            $blog->save();
         }
+        $this->messageManager->addSuccess(__('Blog(s) enabled successfully.'));
         $resultRedirect = $this->resultRedirectFactory->create();
         return $resultRedirect->setPath('*/*/');
     }

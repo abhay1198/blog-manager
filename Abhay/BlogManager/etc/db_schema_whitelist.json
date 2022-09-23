@@ -1,0 +1,20 @@
+{
+    "abhay_blog_manager": {
+        "column": {
+            "blog_id": true,
+            "blog_title": true,
+            "url_key": true,
+            "author_name": true,
+            "publish_date": true,
+            "thumbnail": true,
+            "status": true,
+            "content": true,
+            "category_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

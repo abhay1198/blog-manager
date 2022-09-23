@@ -43,13 +43,60 @@
     <listingToolbar name="listing_top">
 		<argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="sticky" xsi:type="boolean">false</item>
+                <item name="sticky" xsi:type="boolean">true</item>
             </item>
         </argument>
-     	<bookmark name="bookmark"/>
+		<bookmark name="bookmark"/>
         <columnsControls name="columns_controls"/>
         <filters name="listing_filters"/>
         <paging name="listing_paging"/>
+		<massaction name="listing_massaction">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="selectProvider" xsi:type="string">blog_manage_list.blog_manage_list.blog_manage_columns.ids</item>
+					<item name="indexField" xsi:type="string">blog_id</item>
+				</item>
+			</argument>
+			<action name="enable">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="type" xsi:type="string">enable</item>
+						<item name="label" xsi:type="string" translate="true">Enable</item>
+						<item name="url" xsi:type="url" path="blog/manage/MassEnable"/>
+						<item name="confirm" xsi:type="array">
+							<item name="title" xsi:type="string" translate="true">Enable</item>
+							<item name="message" xsi:type="string" translate="true">Do you want to enable selected Blogs?</item>
+						</item>
+					</item>
+				</argument>
+			</action>
+			<action name="disable">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="type" xsi:type="string">disable</item>
+						<item name="label" xsi:type="string" translate="true">Disable</item>
+						<item name="url" xsi:type="url" path="blog/manage/MassDisable"/>
+						 <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Disable</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to disable selected Blogs?</item>
+                        </item>
+					</item>
+				</argument>
+			</action>
+			<action name="delete">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="type" xsi:type="string">delete</item>
+						<item name="label" xsi:type="string" translate="true">Delete</item>
+						<item name="url" xsi:type="url" path="blog/manage/MassDelete"/>
+						<item name="confirm" xsi:type="array">
+							<item name="title" xsi:type="string" translate="true">Delete</item>
+							<item name="message" xsi:type="string" translate="true">Do you want to delete selected Blogs?</item>
+						</item>
+					</item>
+				</argument>
+			</action>
+		</massaction>
     </listingToolbar>
     <columns name="blog_manage_columns">
         <selectionsColumn name="ids">
