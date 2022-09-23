@@ -51,6 +51,16 @@ class Save extends \Magento\Backend\App\Action
             $model = $this->_blog->create();
             $data['updated_at'] = $time;
             $category = implode(',', $data['category_id']);
+            $url_key1 = $data['url_key'];
+            $url_key2 = $data['blog_title'];
+            if ($url_key1) {
+                $key1 = str_replace(' ', '-', strtolower($url_key1));
+                $data['url_key'] = $key1;
+            } else {
+                $key2 = str_replace(' ', '-', strtolower($url_key2));
+                $data['url_key'] = $key2;
+            }
+
             if ($id) {
                 $data['category_id'] = $category;
                 $model->addData($data)->setId($id)->save();

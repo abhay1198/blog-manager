@@ -99,6 +99,29 @@
 		</massaction>
     </listingToolbar>
     <columns name="blog_manage_columns">
+		<argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="editorConfig" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">blog_manage_list.blog_manage_list.blog_manage_columns.ids</item>
+                    <item name="enabled" xsi:type="boolean">true</item>
+                    <item name="indexField" xsi:type="string">blog_id</item>
+                    <item name="clientConfig" xsi:type="array">
+                        <item name="saveUrl" path="blog/manage/inlineEdit" xsi:type="url"/>
+                        <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+                <item name="childDefaults" xsi:type="array">
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">blog_manage_list.blog_manage_list.blog_manage_columns_editor</item>
+                        <item name="target" xsi:type="string">startEdit</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                            <item name="1" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </argument>
         <selectionsColumn name="ids">
 			<argument name="data" xsi:type="array">
 				<item name="config" xsi:type="array">
@@ -125,6 +148,12 @@
 					<item name="filter" xsi:type="string">text</item>
 					<item name="label" xsi:type="string" translate="true">Title</item>
 					<item name="sortOrder" xsi:type="number">3</item>
+					<item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">false</item>
+                        </item>
+                    </item>
 				</item>
 			</argument>
 		</column>
@@ -143,6 +172,9 @@
 					<item name="filter" xsi:type="string">text</item>
 					<item name="label" xsi:type="string" translate="true">Author Name</item>
 					<item name="sortOrder" xsi:type="number">5</item>
+					<item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item>
 				</item>
 			</argument>
 		</column>
