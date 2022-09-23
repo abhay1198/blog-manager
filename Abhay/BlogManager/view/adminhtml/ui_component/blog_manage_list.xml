@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @package     Abhay/BlogManager
+ * @version     1.0.0
+ * @author      Abhay
+ * @copyright   Copyright © 2021. All Rights Reserved.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">blog_manage_list.blog_manage_list_data_source</item>
+			<item name="deps" xsi:type="string">blog_manage_list.blog_manage_list_data_source</item>
+		</item>
+		<item name="spinner" xsi:type="string">blog_manage_columns</item>
+		<item name="buttons" xsi:type="array">
+			<item name="add" xsi:type="array">
+				<item name="name" xsi:type="string">add</item>
+				<item name="label" xsi:type="string" translate="true">Add Blog</item>
+				<item name="class" xsi:type="string">primary</item>
+				<item name="url" xsi:type="string">*/*/new</item>
+			</item>
+		</item>
+	</argument>
+	<dataSource name="blog_manage_list_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">blog_manage_list_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">blog_id</argument>
+            <argument name="requestFieldName" xsi:type="string">blog_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">blog_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+		<argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+     	<bookmark name="bookmark"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="blog_manage_columns">
+        <selectionsColumn name="ids">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="resizeEnabled" xsi:type="boolean">false</item>
+					<item name="resizeDefaultWidth" xsi:type="string">55</item>
+					<item name="indexField" xsi:type="string">blog_id</item>
+					<item name="sortOrder" xsi:type="number">1</item>
+				</item>
+			</argument>
+		</selectionsColumn>
+        <column name="blog_id">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">textRange</item>
+					<item name="sorting" xsi:type="string">asc</item>
+					<item name="label" xsi:type="string" translate="true">Id</item>
+					<item name="sortOrder" xsi:type="number">2</item>
+				</item>
+			</argument>
+		</column>
+		<column name="blog_title">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Title</item>
+					<item name="sortOrder" xsi:type="number">3</item>
+				</item>
+			</argument>
+		</column>
+        <column name="content">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Content</item>
+					<item name="sortOrder" xsi:type="number">4</item>
+				</item>
+			</argument>
+		</column>
+		<column name="author_name">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Author Name</item>
+					<item name="sortOrder" xsi:type="number">5</item>
+				</item>
+			</argument>
+		</column>
+		<column name="publish_date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">6</item>
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Publish Date</item>
+                </item>
+            </argument>
+        </column>
+		 <column name="status">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">Abhay\BlogManager\Model\Config\Status</item>
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">select</item>
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+					<item name="editor" xsi:type="string">select</item>
+					<item name="dataType" xsi:type="string">select</item>
+					<item name="label" xsi:type="string" translate="true">Status</item>
+					<item name="sortOrder" xsi:type="number">7</item>
+				</item>
+			</argument>
+		</column>
+		<column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="dataType" xsi:type="string">date</item>
+                    <item name="label" xsi:type="string" translate="true">Created At</item>
+                    <item name="sortOrder" xsi:type="number">8</item>
+                </item>
+            </argument>
+        </column>
+		<actionsColumn name="actions" class="Abhay\BlogManager\Ui\Component\Listing\Columns\BlogAction">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="indexField" xsi:type="string">id</item>
+					<item name="sortOrder" xsi:type="number">9</item>
+				</item>
+			</argument>
+		</actionsColumn>
+    </columns>
+</listing>

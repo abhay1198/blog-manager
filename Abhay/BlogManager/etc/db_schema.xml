@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="abhay_blog_manager" resource="default" engine="innodb" comment="Blog Manager Table">
+        <column xsi:type="int" name="blog_id" unsigned="true" nullable="false" padding="10" identity="true" comment="Entity Id"/>
+        <column xsi:type="varchar" name="blog_title" nullable="false" length="75" comment="Blog Title"/>
+        <column xsi:type="text" name="url_key" nullable="true" comment="Url Key of blog"/>
+        <column xsi:type="text" name="author_name" nullable="true" comment="Author Name"/>
+        <column xsi:type="date" name="publish_date" comment="Publish Date"/>
+        <column xsi:type="text" name="thumbnail" comment="blog image"/>
+        <column xsi:type="int" name="status" unsigned="true" nullable="false" default="0" padding="10" comment="Status"/>
+        <column xsi:type="text" name="content" nullable="true" comment="Content"/>
+        <column xsi:type="text" name="category_id" nullable="true" comment="Category Id"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="false" comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="blog_id"/>
+        </constraint>
+   </table>
+</schema>
