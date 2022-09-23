@@ -50,7 +50,11 @@ class Save extends \Magento\Backend\App\Action
             $id = (int) $this->getRequest()->getParam('blog_id');
             $model = $this->_blog->create();
             $data['updated_at'] = $time;
+
+            // to save the category id 
             $category = implode(',', $data['category_id']);
+
+            // to save the URL key
             $url_key1 = $data['url_key'];
             $url_key2 = $data['blog_title'];
             if ($url_key1) {
@@ -61,6 +65,14 @@ class Save extends \Magento\Backend\App\Action
                 $data['url_key'] = $key2;
             }
 
+            // to save the image 
+            if (isset($data['thumbnail'][0]['name'])) {
+                $data['thumbnail'] = $data['thumbnail'][0]['name'];
+            } else {
+                $data['thumbnail'] = null;
+            }
+
+            // to update and crate the blog in DB
             if ($id) {
                 $data['category_id'] = $category;
                 $model->addData($data)->setId($id)->save();

@@ -142,12 +142,23 @@
 				</item>
 			</argument>
 		</column>
+		<column name="thumbnail" class="Abhay\BlogManager\Ui\Component\Listing\Columns\Thumbnail">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="altField" xsi:type="string">name</item>
+                    <item name="has_preview" xsi:type="string">3</item>
+                    <item name="label" xsi:type="string" translate="true">Thumbnail</item>
+                </item>
+            </argument>
+        </column>
 		<column name="blog_title">
 			<argument name="data" xsi:type="array">
 				<item name="config" xsi:type="array">
 					<item name="filter" xsi:type="string">text</item>
 					<item name="label" xsi:type="string" translate="true">Title</item>
-					<item name="sortOrder" xsi:type="number">3</item>
+					<item name="sortOrder" xsi:type="number">4</item>
 					<item name="editor" xsi:type="array">
                         <item name="editorType" xsi:type="string">text</item>
                         <item name="validation" xsi:type="array">
@@ -162,7 +173,7 @@
 				<item name="config" xsi:type="array">
 					<item name="filter" xsi:type="string">text</item>
 					<item name="label" xsi:type="string" translate="true">Content</item>
-					<item name="sortOrder" xsi:type="number">4</item>
+					<item name="sortOrder" xsi:type="number">5</item>
 				</item>
 			</argument>
 		</column>
@@ -171,7 +182,7 @@
 				<item name="config" xsi:type="array">
 					<item name="filter" xsi:type="string">text</item>
 					<item name="label" xsi:type="string" translate="true">Author Name</item>
-					<item name="sortOrder" xsi:type="number">5</item>
+					<item name="sortOrder" xsi:type="number">6</item>
 					<item name="editor" xsi:type="array">
                         <item name="editorType" xsi:type="string">text</item>
                     </item>
@@ -181,7 +192,7 @@
 		<column name="publish_date">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="sortOrder" xsi:type="number">6</item>
+                    <item name="sortOrder" xsi:type="number">7</item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" translate="true" xsi:type="string">Publish Date</item>
                 </item>
@@ -196,7 +207,7 @@
 					<item name="editor" xsi:type="string">select</item>
 					<item name="dataType" xsi:type="string">select</item>
 					<item name="label" xsi:type="string" translate="true">Status</item>
-					<item name="sortOrder" xsi:type="number">7</item>
+					<item name="sortOrder" xsi:type="number">8</item>
 				</item>
 			</argument>
 		</column>
@@ -207,7 +218,7 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
                     <item name="dataType" xsi:type="string">date</item>
                     <item name="label" xsi:type="string" translate="true">Created At</item>
-                    <item name="sortOrder" xsi:type="number">8</item>
+                    <item name="sortOrder" xsi:type="number">9</item>
                 </item>
             </argument>
         </column>
@@ -215,7 +226,7 @@
 			<argument name="data" xsi:type="array">
 				<item name="config" xsi:type="array">
 					<item name="indexField" xsi:type="string">id</item>
-					<item name="sortOrder" xsi:type="number">9</item>
+					<item name="sortOrder" xsi:type="number">10</item>
 				</item>
 			</argument>
 		</actionsColumn>

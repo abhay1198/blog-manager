@@ -21,4 +21,16 @@
             <argument name="resourceModel" xsi:type="string">Abhay\BlogManager\Model\ResourceModel\Blog</argument>
         </arguments>
     </virtualType>
+    <type name="Abhay\BlogManager\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">abhay/blog/thumbnail</argument>
+            <argument name="basePath" xsi:type="string">blog/thumbnail</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

@@ -11,6 +11,7 @@ namespace Abhay\BlogManager\Model\Blog;
 
 use Abhay\BlogManager\Model\ResourceModel\Blog\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Class FAQ DataProvider
@@ -47,11 +48,13 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $requestFieldName,
         CollectionFactory $pageCollectionFactory,
         DataPersistorInterface $dataPersistor,
+        StoreManagerInterface $storeManager,
         array $meta = [],
         array $data = []
     ) {
         $this->collection = $pageCollectionFactory->create();
         $this->dataPersistor = $dataPersistor;
+        $this->storeManager = $storeManager;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
         $this->meta = $this->prepareMeta($this->meta);
     }
@@ -88,6 +91,12 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
                 $fullData = $this->loadedData;
                 $this->loadedData[$page->getId()] = array_merge($fullData[$page->getId()], $data);
             }
+            if ($page->getThumbnail()) {
+                $m['thumbnail'][0]['name'] = $page->getThumbnail();
+                $m['thumbnail'][0]['url'] = $this->getMediaUrl().$page->getThumbnail();
+                $fullData = $this->loadedData;
+                $this->loadedData[$page->getId()] = array_merge($fullData[$page->getId()], $m);
+            }
         }
 
         $data = $this->dataPersistor->get('blog');
@@ -100,4 +109,11 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
         return $this->loadedData;
     }
+
+    public function getMediaUrl()
+    {
+        $mediaUrl = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).'abhay/blog/thumbnail/';
+        return $mediaUrl;
+    }
+
 }

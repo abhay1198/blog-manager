@@ -127,6 +127,27 @@
                 <visible>true</visible>
             </settings>
         </field>
+        <field name="thumbnail">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="dataType" xsi:type="string">string</item>
+                   <item name="source" xsi:type="string">thumbnail</item>
+                   <item name="label" xsi:type="string" translate="true">Upload Image</item>
+                   <item name="visible" xsi:type="boolean">true</item>
+                   <item name="formElement" xsi:type="string">fileUploader</item>
+                   <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                   <item name="previewTmpl" xsi:type="string">Abhay_BlogManager/image-preview</item>
+                   <item name="required" xsi:type="boolean">false</item>
+                   <item name="sortOrder" xsi:type="number">30</item>
+                   <item name="validation" xsi:type="array">
+                      <item name="required-entry" xsi:type="boolean">true</item>
+                  </item>
+                   <item name="uploaderConfig" xsi:type="array">
+                       <item name="url" xsi:type="url" path="blog/manage/upload"/>
+                   </item>
+               </item>
+           </argument>
+        </field>
         <field name="category_id">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">Magento\Catalog\Ui\Component\Product\Form\Categories\Options</item>
