@@ -81,6 +81,13 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         /** @var $page \Magento\Cms\Model\Page */
         foreach ($items as $page) {
             $this->loadedData[$page->getId()] = $page->getData();
+            if ($page->getCategoryId()) {
+                $data['category_id'] = $page->getCategoryId();
+                $data['category_id'] = explode(',', $data['category_id']);
+                $result['category'] = $data;
+                $fullData = $this->loadedData;
+                $this->loadedData[$page->getId()] = array_merge($fullData[$page->getId()], $data);
+            }
         }
 
         $data = $this->dataPersistor->get('blog');
