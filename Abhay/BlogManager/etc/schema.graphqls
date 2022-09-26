@@ -1,0 +1,4 @@
+type StoreConfig {
+    abhay_general_enable  : String  @doc(description: "Module Configuration Enabled or disabled.") ,
+}
+

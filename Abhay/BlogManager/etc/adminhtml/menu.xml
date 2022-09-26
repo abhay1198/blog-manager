@@ -22,5 +22,14 @@
              parent="Abhay_BlogManager::blog" 
              action="blog/manage/index" 
              resource="Abhay_BlogManager::manage" />
+
+        <add id="Abhay_BlogManager::blog_configuration"
+             title="Configuration"
+             module="Abhay_BlogManager"
+             sortOrder="99"
+             parent="Abhay_BlogManager::manage"
+             action="adminhtml/system_config/edit/section/blog"
+             resource="Abhay_BlogManager::blog_configuration"/>
+
    	</menu>
 </config>
