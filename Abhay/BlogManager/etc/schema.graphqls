@@ -2,3 +2,24 @@ type StoreConfig {
     abhay_general_enable  : String  @doc(description: "Module Configuration Enabled or disabled.") ,
 }
 
+type Query {
+    blogData (
+        blog_id: Int @doc(description: "Blog Id")
+    ): BlogData @resolver(class: "Abhay\\BlogManager\\Model\\Resolver\\BlogData") @doc(description: "The blog query returns information of particular blog")
+}
+
+type BlogData @doc(description: "blog data graphql, get Data of specific blog") {
+    blog_id: String @doc(description: "blog id")
+    blog_title: String @doc(description: "Title of blog")
+    author_name: String @doc(description: "Author Name")
+    status: String @doc(description: "Status")
+    content: String @doc(description: "Blog content")
+    thumbnail: String @doc(description: "Image")
+    url_key: String @doc(description: "URL key")
+    category_id: String @doc(description: "category id")
+    publish_date: String @doc(description: "Publish Date")
+    created_at: String @doc(description: "Create Date")
+    updated_at: String @doc(description: "Update Date")
+}
+
+

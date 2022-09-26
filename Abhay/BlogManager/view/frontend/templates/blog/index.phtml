@@ -1,0 +1,17 @@
+<?php $enabled = $block->getConfigValue('abhay/general/enable'); ?>
+<div>
+    <?php if($enabled){ 
+        $collection = $block->getBlogCollection();
+    ?>
+        <ul>
+        <?php foreach ($collection as $blog): ?>
+            <li>
+                <div>
+                    <h2><?php echo $blog->getBlogTitle(); ?></h2>
+                </div>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    <?php } ?>
+</div>
+
