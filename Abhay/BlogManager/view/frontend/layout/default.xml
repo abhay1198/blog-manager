@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package     Abhay/BlogManager
+ * @version     1.0.0
+ * @author      Abhay
+ * @copyright   Copyright © 2021. All Rights Reserved.
+ */
+-->
+<page xmlns:xsi="//www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="header.links">
+            <block class="Abhay\BlogManager\Block\HeaderLink" ifconfig="abhay/general/enable" name="header_link" >
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Blogs</argument>
+                    <argument name="path" xsi:type="string">manage</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="footer_links">
+          <block class="Abhay\BlogManager\Block\FooterLink" ifconfig="abhay/general/enable" name="footer-link" after="privacy-policy-link">
+              <arguments>
+                  <argument name="label" xsi:type="string" translate="true">Blogs</argument>
+                 <argument name="path" xsi:type="string">manage</argument>
+              </arguments>
+          </block>
+      </referenceBlock>
+    </body>
+</page>
