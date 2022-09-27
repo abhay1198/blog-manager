@@ -33,4 +33,5 @@
             </argument>
         </arguments>
     </type>
+    <preference for="Abhay\BlogManager\Api\BlogRepositoryInterface" type="Abhay\BlogManager\Model\Api\BlogDataApi"/>
 </config>
