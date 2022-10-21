@@ -34,4 +34,11 @@
         </arguments>
     </type>
     <preference for="Abhay\BlogManager\Api\BlogRepositoryInterface" type="Abhay\BlogManager\Model\Api\BlogDataApi"/>
+    <type name="Magento\Framework\Console\CommandList">
+       <arguments>
+           <argument name="commands" xsi:type="array">
+               <item name="disable_blog_manager" xsi:type="object">Abhay\BlogManager\Console\DisableBlogManager</item>
+           </argument>
+       </arguments>
+   </type>
 </config>
