@@ -58,7 +58,7 @@ class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
-            $path = $this->storeManager->getStore()->getBaseUrl(
+            $path = $this->_storeManager->getStore()->getBaseUrl(
                 \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
             ).'abhay/blog/thumbnail/';
             foreach ($dataSource['data']['items'] as & $item) {
