@@ -1,10 +1,15 @@
 <?php
-
 /**
- * @package     Abhay/BlogManager
- * @version     1.0.0
- * @author      Abhay
- * @copyright   Copyright © 2021. All Rights Reserved.
+ * Abhay
+ * 
+ * PHP version 8
+ * 
+ * @category  Abhay
+ * @package   Abhay_BlogManager
+ * @author    Abhay Agrawal <abhay@gmail.com>
+ * @copyright 2022 Copyright © Abhay
+ * @license   See COPYING.txt for license details.
+ * @link      https://github.com/abhay1198/blog-manager
  */
 
 namespace Abhay\BlogManager\Model\Blog;
@@ -34,13 +39,13 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
     protected $loadedData;
 
     /**
-     * @param string $name
-     * @param string $primaryFieldName
-     * @param string $requestFieldName
-     * @param CollectionFactory $pageCollectionFactory
+     * @param string                 $name
+     * @param string                 $primaryFieldName
+     * @param string                 $requestFieldName
+     * @param CollectionFactory      $pageCollectionFactory
      * @param DataPersistorInterface $dataPersistor
-     * @param array $meta
-     * @param array $data
+     * @param array                  $meta
+     * @param array                  $data
      */
     public function __construct(
         $name,
@@ -62,7 +67,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
     /**
      * Prepares Meta
      *
-     * @param array $meta
+     * @param  array $meta
      * @return array
      */
     public function prepareMeta(array $meta)
@@ -81,7 +86,9 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             return $this->loadedData;
         }
         $items = $this->collection->getItems();
-        /** @var $page \Magento\Cms\Model\Page */
+        /**
+ * @var $page \Magento\Cms\Model\Page 
+*/
         foreach ($items as $page) {
             $this->loadedData[$page->getId()] = $page->getData();
             if ($page->getCategoryId()) {

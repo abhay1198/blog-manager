@@ -1,10 +1,15 @@
 <?php
-
 /**
- * @package     Abhay/BlogManager
- * @version     1.0.0
- * @author      Abhay
- * @copyright   Copyright © 2021. All Rights Reserved.
+ * Abhay
+ * 
+ * PHP version 8
+ * 
+ * @category  Abhay
+ * @package   Abhay_BlogManager
+ * @author    Abhay Agrawal <abhay@gmail.com>
+ * @copyright 2022 Copyright © Abhay
+ * @license   See COPYING.txt for license details.
+ * @link      https://github.com/abhay1198/blog-manager
  */
 
 namespace Abhay\BlogManager\Controller\Adminhtml\Manage;
@@ -15,7 +20,7 @@ class InlineEdit extends \Magento\Backend\App\Action
     private $blogModel;
 
     /**
-     * @param Action\Context $context
+     * @param Action\Context                       $context
      * @param \Abhay\BlogManager\Model\BlogFactory $blogFactory
      */
     public function __construct(
@@ -39,7 +44,9 @@ class InlineEdit extends \Magento\Backend\App\Action
                 $error = true;
             } else {
                 foreach (array_keys($blogItems) as $modelid) {
-                    /** @var \Magento\Cms\Model\Block $block */
+                    /**
+ * @var \Magento\Cms\Model\Block $block 
+*/
                     $model = $this->blogModel->load($modelid);
                     try {
                         $model->setData(array_merge($model->getData(), $blogItems[$modelid]));
@@ -51,9 +58,11 @@ class InlineEdit extends \Magento\Backend\App\Action
                 }
             }
         }
-        return $resultJson->setData([
+        return $resultJson->setData(
+            [
             'messages' => $messages,
             'error' => $error
-        ]);
+            ]
+        );
     }
 }

@@ -1,10 +1,15 @@
 <?php
-
 /**
- * @package     Abhay/BlogManager
- * @version     1.0.0
- * @author      Abhay
- * @copyright   Copyright © 2021. All Rights Reserved.
+ * Abhay
+ * 
+ * PHP version 8
+ * 
+ * @category  Abhay
+ * @package   Abhay_BlogManager
+ * @author    Abhay Agrawal <abhay@gmail.com>
+ * @copyright 2022 Copyright © Abhay
+ * @license   See COPYING.txt for license details.
+ * @link      https://github.com/abhay1198/blog-manager
  */
 
 namespace Abhay\BlogManager\Ui\Component\Listing\Columns;
@@ -14,24 +19,42 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\View\Asset\Repository;
 
+
+/**
+ * Thumbnail class
+ */
+
 class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
 {
-    private $storeManager;
-    private $assetRepo;
+    /**
+     * @var StoreManagerInterface
+     */
+    private $_storeManager;
+
+    /**
+     * @var Repository
+     */
+    private $_assetRepo;
 
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
-        StoreManagerInterface $storeManager,
-        Repository $assetRepo,
+        StoreManagerInterface $_storeManager,
+        Repository $_assetRepo,
         array $components = [],
         array $data = []
     ) {
         parent::__construct($context, $uiComponentFactory, $components, $data);
-        $this->storeManager = $storeManager;
-        $this->assetRepo = $assetRepo;
+        $this->_storeManager = $_storeManager;
+        $this->_assetRepo = $_assetRepo;
     }
-    
+
+     /**
+      * Prepare Data Source
+      *
+      * @param  array $dataSource
+      * @return array
+      */
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {

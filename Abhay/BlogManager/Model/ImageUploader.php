@@ -1,12 +1,16 @@
 <?php
-
 /**
- * @package     Abhay/BlogManager
- * @version     1.0.0
- * @author      Abhay
- * @copyright   Copyright © 2021. All Rights Reserved.
+ * Abhay
+ * 
+ * PHP version 8
+ * 
+ * @category  Abhay
+ * @package   Abhay_BlogManager
+ * @author    Abhay Agrawal <abhay@gmail.com>
+ * @copyright 2022 Copyright © Abhay
+ * @license   See COPYING.txt for license details.
+ * @link      https://github.com/abhay1198/blog-manager
  */
-
 namespace Abhay\BlogManager\Model;
 
 class ImageUploader
@@ -104,10 +108,10 @@ class ImageUploader
         $result['tmp_name'] = str_replace('\\', '/', $result['tmp_name']);
         $result['path'] = str_replace('\\', '/', $result['path']);
         $result['url'] = $this->storeManager
-                ->getStore()
-                ->getBaseUrl(
-                    \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
-                ) . $this->getFilePath($baseTmpPath, $result['file']);
+            ->getStore()
+            ->getBaseUrl(
+                \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
+            ) . $this->getFilePath($baseTmpPath, $result['file']);
         $result['name'] = $result['file'];
         if (isset($result['file'])) {
             try {

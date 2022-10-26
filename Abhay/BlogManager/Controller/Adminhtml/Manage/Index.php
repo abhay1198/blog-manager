@@ -1,10 +1,15 @@
 <?php
-
 /**
- * @package     Abhay/BlogManager
- * @version     1.0.0
- * @author      Abhay
- * @copyright   Copyright © 2021. All Rights Reserved.
+ * Abhay
+ * 
+ * PHP version 8
+ * 
+ * @category  Abhay
+ * @package   Abhay_BlogManager
+ * @author    Abhay Agrawal <abhay@gmail.com>
+ * @copyright 2022 Copyright © Abhay
+ * @license   See COPYING.txt for license details.
+ * @link      https://github.com/abhay1198/blog-manager
  */
 
 namespace Abhay\BlogManager\Controller\Adminhtml\Manage;
@@ -37,7 +42,9 @@ class Index extends Action
      */
     public function execute()
     {
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        /**
+ * @var \Magento\Backend\Model\View\Result\Page $resultPage 
+*/
         $resultPage = $this->_resultPageFactory->create();
         $resultPage->setActiveMenu('Abhay_BlogManager::blog');
         $resultPage->getConfig()->getTitle()->prepend(__('Manage Blog'));
